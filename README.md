@@ -14,7 +14,7 @@ Politeknik Negeri Banyuwangi 2020
 Sistem Manajemen Pengelolaan Presensi Proyek di PT. Lundin Berbasis Web merupakan judul proyek akhir yang saya ambil berdasarkan studi lapang di departemen produksi salah satu perusahaan kapal di Banyuwangi. Proyek Akhir ini dibangun dengan menggunakan PHP framework Laravel 7 dan Js Framework Vue. Sistem ini memiliki empat level pengguna yakni :
 - Pegawai
 - Admin proyek
-- Manajare
+- Manajer
 - HRD
 
 ## Fitur
