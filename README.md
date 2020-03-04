@@ -1,14 +1,13 @@
-# ProyekAkhir
+# Proyek Akhir
 
-## Judul Proyek Akhir
+Judul : Sistem Manajemen Pengelolaan Presensi Proyek di PT. Lundin Berbasis Web <br>
 
-SISTEM MANAJEMEN PENGELOLAAN PRESENSI PROYEK DI PT. LUNDIN BERBASIS WEB
 Oleh :
-- TUSFENDI
+- Tusfendi
 - NIM. 361755401175
 
-PROGRAM STUDI DIPLOMA III TEKNIK INFORMATIKA
-POLITEKNIK NEGERI BANYUWANGI 2020
+Program Studi Diploma III Teknik Informatika <br>
+Politeknik Negeri Banyuwangi 2020
 
 ## Tentang Proyek Akhir
 
