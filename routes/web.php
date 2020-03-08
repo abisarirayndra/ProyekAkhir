@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
@@ -28,3 +28,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::match(["GET", "POST"], "/register", function(){
     return redirect("/login");
 })->name("register");
+
+// Route::get('pegawai', 'PegawaiController@index')->middleware('auth');
+
+Route::group(['middleware'=>['auth','checkRole:admin,manajer']],function(){
+    Route::get('pegawai', 'PegawaiController@index');
+});
