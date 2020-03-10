@@ -5,14 +5,15 @@
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Beranda</div>
-
-            </div>
-        </div>
+    <div class="text-center">
+        <h3>Beranda</h3>
     </div>
-</div>
+    <div class="container">
+        @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
+    {{-- isi konten --}}
+    </div>
 @endsection
