@@ -22,5 +22,11 @@
         "sass-loader": "^8.0.0",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.12.1",
+        "laravel-vue-datatable": "^0.5.7",
+        "vue-axios": "^2.1.5",
+        "vue-router": "^3.1.6"
     }
 }
