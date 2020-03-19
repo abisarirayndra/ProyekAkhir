@@ -24,6 +24,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -41,13 +42,25 @@
                     <ul class="navbar-nav mr-auto">
                         @guest
                         @else
-                            <li class="navbar"><a href="{{ url('/') }}">Beranda</a></li>
+                            <li class="nav-item {{((url("/") == url()->current())||url("/home") == url()->current()) ? 'active' : '' }}"><a class="nav-link" href="{{ url('/') }}">Beranda</a></li>
                             @if (Auth::user()->role==='manajer'||Auth::user()->role==='admin')
-                                <li class="navbar"><a class=".navbar-men" href="{{ url('/') }}">Proyek</a></li>
+                                <li class="nav-item"><a class="nav-link" class=".navbar-men" href="{{ url('/') }}">Proyek</a></li>
                             @endif
                             @if (Auth::user()->role==='admin')
-                                <li class="navbar"><a href="{{ url('/') }}">Pekerjaan</a></li>
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown {{(url("/pekerjaan") == url()->current()) ? 'active' : '' }}">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Pekerjaan <span class="caret"></span>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{url('/pekerjaan')  }}">
+                                        Master Pekerjaan
+                                        </a>
+                                        <a class="dropdown-item" href="{{url('/')  }}">
+                                        Cetak Pekerjaan
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown {{(url("/jabatan") == url()->current()) ? 'active' : '' }}">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         Pegawai <span class="caret"></span>
                                     </a>
@@ -55,7 +68,7 @@
                                         <a class="dropdown-item" class="logout" href="">
                                            Daftar Pegawai
                                         </a>
-                                        <a class="dropdown-item" class="logout" href="">
+                                        <a class="dropdown-item" class="logout" href="{{url('/jabatan')  }}">
                                             Jabatan
                                         </a>
                                         <a class="dropdown-item" class="logout" href="">
@@ -63,10 +76,14 @@
                                         </a>
                                     </div>
                                 </li>
-                                <li class="navbar"><a href="{{ url('/') }}">Jam Kerja</a></li>
+                                <li class="nav-item {{(url("/jam_kerja") == url()->current()) ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ url('/') }}">
+                                        Jam Kerja
+                                    </a>
+                                </li>
                             @endif
                             @if (Auth::user()->role==='manajer'||Auth::user()->role==='admin')
-                                <li class="navbar"><a href="{{ url('/') }}">Presensi Proyek</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Presensi Proyek</a></li>
                             @endif
                         @endguest
                     </ul>
@@ -114,7 +131,7 @@
 <footer class="page-footer font-small pt-4">
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">©{{ now()->year }} Copyright:
-      <a href="https://mdbootstrap.com/"> PT. Lundin</a>
+      <a href="https://ptlundin.com/"> PT. Lundin</a>
     </div>
     <!-- Copyright -->
 </footer>
