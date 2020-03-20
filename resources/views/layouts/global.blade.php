@@ -1,7 +1,3 @@
-<style>
-
-</style>
-
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -44,7 +40,7 @@
                         @else
                             <li class="nav-item {{((url("/") == url()->current())||url("/home") == url()->current()) ? 'active' : '' }}"><a class="nav-link" href="{{ url('/') }}">Beranda</a></li>
                             @if (Auth::user()->role==='manajer'||Auth::user()->role==='admin')
-                                <li class="nav-item"><a class="nav-link" class=".navbar-men" href="{{ url('/') }}">Proyek</a></li>
+                                <li class="nav-item {{(url("/proyek") == url()->current()) ? 'active' : '' }}"><a class="nav-link" class=".navbar-men" href="{{ url('/proyek') }}">Proyek</a></li>
                             @endif
                             @if (Auth::user()->role==='admin')
                                 <li class="nav-item dropdown {{(url("/pekerjaan") == url()->current()) ? 'active' : '' }}">
@@ -55,7 +51,7 @@
                                         <a class="dropdown-item" href="{{url('/pekerjaan')  }}">
                                         Master Pekerjaan
                                         </a>
-                                        <a class="dropdown-item" href="{{url('/')  }}">
+                                        <a class="dropdown-item" href="{{url('/cetak_pekerjaan')  }}">
                                         Cetak Pekerjaan
                                         </a>
                                     </div>
@@ -83,7 +79,7 @@
                                 </li>
                             @endif
                             @if (Auth::user()->role==='manajer'||Auth::user()->role==='admin')
-                                <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Presensi Proyek</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ url('/presensi_proyek') }}">Presensi Proyek</a></li>
                             @endif
                         @endguest
                     </ul>
