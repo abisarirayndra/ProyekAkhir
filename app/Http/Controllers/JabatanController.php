@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Jabatan;
 use Illuminate\Http\Request;
-// use App\Http\Controllers\Rule;
 use Illuminate\Validation\Rule;
 
 class JabatanController extends Controller
@@ -15,7 +15,7 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        $jabatan = \App\Jabatan::paginate(10);
+        $jabatan = Jabatan::paginate(10);
         return view('jabatan.index', ['jabatans' => $jabatan]);
     }
 
@@ -41,7 +41,7 @@ class JabatanController extends Controller
             'nama_jabatan' => 'required|unique:jabatan',
         ]);
   
-        $data = new \App\Jabatan;
+        $data = new Jabatan;
         $data->nama_jabatan = $request->nama_jabatan;
         $data->save();
   
@@ -67,7 +67,7 @@ class JabatanController extends Controller
      */
     public function edit($id)
     {
-        $data = \App\Jabatan::findOrFail($id);
+        $data = Jabatan::findOrFail($id);
 
         return view('jabatan.edit',['jabatan' => $data]);
   
@@ -89,7 +89,7 @@ class JabatanController extends Controller
             ],
         ]);
   
-        $data = \App\Jabatan::find($id);
+        $data = Jabatan::find($id);
         $data->nama_jabatan = $request->nama_jabatan;
         $data->save();
   
@@ -104,7 +104,7 @@ class JabatanController extends Controller
      */
     public function destroy($id)
     {
-        $jabatan = \App\Jabatan::findOrFail($id);
+        $jabatan = Jabatan::findOrFail($id);
         $jabatan->delete();
 
         return redirect()->route('jabatan.index')->with('success','Berhasil Menghapus Jabatan');
