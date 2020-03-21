@@ -67,8 +67,8 @@
                                         <a class="dropdown-item" class="logout" href="{{url('/jabatan')  }}">
                                             Jabatan
                                         </a>
-                                        <a class="dropdown-item" class="logout" href="">
-                                            Kelompok Kerja
+                                        <a class="dropdown-item" class="logout" href="{{url('/kelompok_pegawai')  }}">
+                                            Kelompok Pegawai
                                         </a>
                                     </div>
                                 </li>

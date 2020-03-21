@@ -35,6 +35,7 @@ Route::group(['middleware'=>['auth','checkRole:admin,manajer']],function(){
     Route::resource('jabatan', 'JabatanController');
     Route::resource('pekerjaan', 'PekerjaanController');
     Route::resource('proyek', 'ProyekController');
+    Route::resource('kelompok_pegawai', 'KelompokPegawaiController');
     Route::get('pegawai', 'PegawaiController@index');
 });
 
