@@ -1,0 +1,17 @@
+
+
+.active{
+  font-weight: bolder;
+}
+
+.nav-item {
+    margin-left: 10px;
+}
+
+.col-form-label {
+  text-align: right;
+}
+
+.img-table{
+  max-height: 50px;
+}
