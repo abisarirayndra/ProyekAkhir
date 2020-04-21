@@ -22,6 +22,7 @@
                 <thead>
                 <tr>
                     <th scope="col">Kode Kapal</th>
+                    <th scope="col">Desain Kapal</th>
                     <th scope="col">Proyek</th>
                     <th scope="col">Status</th>
                     <th scope="col">Pilihan</th>
@@ -31,6 +32,11 @@
                     @foreach($proyeks as $iteration => $proyek)
                     <tr>
                         <td>{{$proyek->id_proyek}}</td>
+                        <td>
+                            @if($proyek->foto)
+                            <img src="{{asset('storage/'.$proyek->foto)}}" class="img-table">
+                            @endif
+                        </td>
                         <td>{{$proyek->deskripsi_proyek}} </td>
                         <td> 
                             @if ($proyek->status_proyek=='1')

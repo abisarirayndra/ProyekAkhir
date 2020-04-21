@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Proyek;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 class ProyekController extends Controller
 {
@@ -46,8 +47,14 @@ class ProyekController extends Controller
         $data->id_proyek = $request->id_proyek;
         $data->deskripsi_proyek = $request->deskripsi_proyek;
         $data->status_proyek = '1';
+        if($request->file('foto')){
+            $file = $request->file('foto')->storeAs(
+                'foto_proyek', $request->id_proyek.'.'.$request->file('foto')->extension(),'public'
+            );
+            $data->foto = $file;
+        }
+
         $data->save();
-  
         return redirect()->route('proyek.index')->with('success','Berhasil menambahkan proyek : ' . $request->deskripsi_proyek );
     }
 
@@ -98,9 +105,20 @@ class ProyekController extends Controller
         $data = Proyek::find($id);
         $data->deskripsi_proyek = $request->deskripsi_proyek;
         $data->status_proyek = $request->status_proyek;
+        $new_foto = $request->file('foto');
+        if($new_foto){
+            if($data->foto && file_exists(storage_path('app/public/' .$data->foto))){
+                \Storage::delete('public/'. $data->foto);
+            }
+            $new_foto_path = $new_foto->storeAs(
+                'foto_proyek', $id.'.'.$request->file('foto')->extension(),'public'
+            );
+            $data->foto = $new_foto_path;
+        }
+
         $data->save();
   
-        return redirect()->route('proyek.index')->with('success','Berhasil mengubah proyek : ' . $request->nama_proyek );
+        return redirect()->route('proyek.index')->with('success','Berhasil mengubah proyek : ' . $request->deskripsi_proyek );
     }
 
     /**
