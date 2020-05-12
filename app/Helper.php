@@ -24,4 +24,20 @@ class Helper
         }
         return implode(', ',$array);
     }
+
+    public static function jam_min($minutes){
+        if($minutes <= 0) 
+            return Date("H:i:s",strtotime("00:00:00"));
+        else    
+            $hasil = sprintf("%02d",floor($minutes / 60)).':'.sprintf("%02d",str_pad(($minutes % 60), 2, "0", STR_PAD_LEFT)).':00';
+            return Date("H:i:s",strtotime("$hasil"));
+    }
+
+    public static function time_to_int($time){
+        if($time != '0') {
+            list($hours, $minutes) = explode(':', $time);
+            return ($hours * 60) + $minutes;
+        }
+        return 0;
+    }
 }
