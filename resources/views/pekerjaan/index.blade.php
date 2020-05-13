@@ -2,13 +2,13 @@
 {{-- @extends('components.notifikasi') --}}
 
 @section('title')
-    pekerjaan
+    Pekerjaan
 @endsection
 
 @section('content')
     <div class="container">
         <div style="margin-bottom:7%">
-            <h3 class="text-center">pekerjaan</h3>
+            <h3 class="text-center">Pekerjaan</h3>
             <a href="{{url("pekerjaan/create")}}" class="btn btn-primary  float-right">
                 <i class="fas fa-plus"></i> Tambah Data
             </a>
@@ -22,7 +22,7 @@
                 <thead>
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">pekerjaan</th>
+                    <th scope="col">Pekerjaan</th>
                     <th scope="col">Pilihan</th>
                 </tr>
                 </thead>
@@ -33,6 +33,9 @@
                         <td>{{$pekerjaan->nama_pekerjaan}} </td>
                         <td>
                             <form action="{{url("pekerjaan/{$pekerjaan->id_pekerjaan}")}}" method="post">
+                                <a href="{{url("pekerjaan/{$pekerjaan->id_pekerjaan}")}}" class="btn btn-outline-info btn-sm" title="Tambah Detail">
+                                    <i class="fas fa-plus"></i>
+                                </a>
                                 <a href="{{url("pekerjaan/{$pekerjaan->id_pekerjaan}/edit")}}" class="btn btn-outline-secondary btn-sm" title="Edit">
                                     <i class="fas fa-edit"></i>
                                 </a>

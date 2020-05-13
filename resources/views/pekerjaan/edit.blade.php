@@ -1,12 +1,12 @@
 @extends('layouts.global')
 
 @section('title')
-   Edit pekerjaan
+   Edit Pekerjaan
 @endsection
 
 @section('content')
     <div class="container">
-        <h3 class="text-center">Edit pekerjaan</h3>
+        <h3 class="text-center">Edit Pekerjaan</h3>
     </div>
     <hr>
     <br>
@@ -17,7 +17,7 @@
                 {{ method_field('PUT') }}
                 @csrf
                 <div class="form-group row">
-                    <label class="col-1 col-form-label">pekerjaan</label>
+                    <label class="col-1 col-form-label">Pekerjaan</label>
                     <div class="col-5">
                         <input type="text" class="form-control" name="nama_pekerjaan" placeholder="pekerjaan" value="{{$pekerjaan->nama_pekerjaan}}">
                     </div>

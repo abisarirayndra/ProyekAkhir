@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Pekerjaan;
+use App\PekerjaanMeta;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -56,7 +57,9 @@ class PekerjaanController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Pekerjaan::findOrFail($id);
+        $detail = PekerjaanMeta::where('id_pekerjaan', $id)->paginate(10);
+        return view('pekerjaan.detail',['pekerjaan' => $data, 'details' => $detail]);
     }
 
     /**
