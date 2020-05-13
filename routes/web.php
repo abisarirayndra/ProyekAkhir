@@ -34,6 +34,7 @@ Route::match(["GET", "POST"], "/register", function(){
 Route::group(['middleware'=>['auth','checkRole:admin,manajer']],function(){
     Route::resource('jabatan', 'JabatanController');
     Route::resource('pekerjaan', 'PekerjaanController');
+    Route::resource('pekerjaan-meta', 'PekerjaanMetaController');
     Route::resource('proyek', 'ProyekController');
     Route::resource('pegawai', 'PegawaiController');
     Route::resource('jam-kerja', 'JamKerjaController');
